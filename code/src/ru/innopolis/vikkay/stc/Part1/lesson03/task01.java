@@ -1,4 +1,4 @@
-package ru.innopolis.vikkay.stc.Part1.lesson01;
+package ru.innopolis.vikkay.stc.Part1.lesson03;
 
 /*
  * Задание 1. Написать программу ”Hello, World!”.
