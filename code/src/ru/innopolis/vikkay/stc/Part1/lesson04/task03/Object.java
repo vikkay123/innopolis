@@ -7,7 +7,7 @@ package ru.innopolis.vikkay.stc.Part1.lesson04.task03;
  * Для создания объектов и тестирования работы класса ObjectBox
  *
  *  @author Viktor Kochetkov
- *  @version 1.0 (12.03.2021)
+ *  @version 2.0 (13.03.2021)
  */
 
 public class Object {

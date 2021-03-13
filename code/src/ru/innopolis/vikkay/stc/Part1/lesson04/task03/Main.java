@@ -8,18 +8,18 @@ import java.lang.*;
  * Класс тестирует класс MathBox
  *
  * @author Viktor Kochetkov
- * @version 1.0 (12.03.2021)
+ * @version 2.0 (13.03.2021)
  */
 
 public class Main {
     public static void main(String[] args) {
 
         /* Работа на заданном масиве */
-        Number[] num = {1, 2, 2, 4.1, 5, 10, 11.3, 13.14, 22, 75, 1};
+        Number[] num = {-1, 5, 2, 4.1, 0, 10, 13.3, 11.14, 75, 25, 1};
 
         System.out.println("[Заданный массив]");
         MathBox mathBoxNum = new MathBox(num);       // создаем объект класса MathBox
-        System.out.println("Коллекция:              " + mathBoxNum.setArray);
+        System.out.println("Коллекция:              " + mathBoxNum.getSetArray());
         mathBoxNum.summator(num);                    // суммируем
         mathBoxNum.remove(1);                     // удаляем заданный элемент
         mathBoxNum.splitter(2);                   // делим на заданное число
@@ -31,7 +31,7 @@ public class Main {
         arr.generatorArray();                       // генерируем массив
 
         MathBox mathBox = new MathBox(arr.array);  // создаем объект класса MathBox
-        System.out.println("Коллекция:              " + mathBox.setArray);
+        System.out.println("Коллекция:              " + mathBox.getSetArray());
         mathBox.summator(arr.array);               // суммируем
         mathBox.remove(5);                      // удаляем заданный элемент
         mathBox.splitter( 2);                   // делим на заданное число
@@ -56,7 +56,7 @@ public class Main {
         System.out.println();
         //System.out.println(mathBox.toString());
         System.out.println("HashCode: " + mathBox.hashCode());
-        System.out.println("Equals: " + mathBox.setArray.equals(arr.array));
+        System.out.println("Equals: " + mathBox.getSetArray().equals(arr.array));
 
     }
 }

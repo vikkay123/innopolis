@@ -2,6 +2,11 @@ package ru.innopolis.vikkay.stc.Part1.lesson04.task01;
 
 
 
+import ru.innopolis.vikkay.stc.Part1.lesson03.task03.Person;
+import ru.innopolis.vikkay.stc.Part1.lesson03.task03.PersonComparator;
+import ru.innopolis.vikkay.stc.Part1.lesson03.task03.SortOne;
+import ru.innopolis.vikkay.stc.Part1.lesson03.task03.SortTwo;
+
 import java.util.*;
 
 /*
@@ -34,15 +39,18 @@ public class task01 {
 
     public static class MathBox <T extends Number>  {
 
+        public Set<T> getSetArray() {
+            return setArray;
+        }
 
-        public Set<T> setArray = new HashSet();         // создаем объект коллекции HashSet
+        private Set<T> setArray = new TreeSet(new ComparatorNum());  // создаем объект коллекции TreeSet
 
         public MathBox(T[] array) {                     // метод принимает на вход массив array
             setArray.addAll(Arrays.asList(array));      // и добавляет его в коллекцию
-            //setArray = new HashSet(Arrays.asList(array));
         }
 
-        public double summator(Number[] numbers) {       // метод суммирует все элементы коллекции
+
+            protected double summator(Number[] numbers) {       // метод суммирует все элементы коллекции
             double scale = Math.pow(10, 1);
             double sum = 0;
 
@@ -53,7 +61,7 @@ public class task01 {
             return sum;
         }
 
-        public Set splitter(int n) {                      // метод делит все элементы коллекции на заданное число n
+           protected Set splitter(int n) {                      // метод делит все элементы коллекции на заданное число n
 
             Set temp = new HashSet();                      // временная коллекция
 
@@ -71,7 +79,7 @@ public class task01 {
         return setArray;
         }
 
-        public void remove (Integer n){                    // метод удаляет из коллекции элемент если он совпадает с заданным числом n
+           protected void remove (Integer n){                    // метод удаляет из коллекции элемент если он совпадает с заданным числом n
 
             Iterator <T> iterator = setArray.iterator();   // создаем итератор
             while (iterator.hasNext()) {
@@ -90,7 +98,6 @@ public class task01 {
             MathBox mathBox = (MathBox) o;
             return setArray.equals(mathBox.setArray);
         }
-
         @Override
         public int hashCode() {
             return  Objects.hash(setArray);
@@ -100,6 +107,5 @@ public class task01 {
         public String toString() {
             return "MathBox :               "  + setArray;
         }
-
     }
 }

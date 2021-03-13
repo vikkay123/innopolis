@@ -19,7 +19,7 @@ import java.util.*;
  * Метод remove, получает на вход Integer и если такое значение есть в коллекции, удаляет его
  *
  * @author Viktor Kochetkov
- * @version 1.0 (12.03.2021)
+ * @version 2.0 (13.03.2021)
  *
  */
 
@@ -27,32 +27,35 @@ public class task03 {
 
     public static class MathBox <T extends Number > extends ObjectBox {
 
-        public Set<T> setArray = new HashSet();         // создаем объект коллекции HashSet
+        public Set<T> getSetArray() {
+            return setArray;
+        }
+
+        private Set<T> setArray = new TreeSet<>(new ComparatorNum());         // создаем объект коллекции HashSet
 
         public MathBox(T[] array) {                     // метод принимает на вход массив array
             setArray.addAll(Arrays.asList(array));      // и добавляет его в коллекцию
-            //setArray = new HashSet(Arrays.asList(array));
         }
 
-        public double summator(Number[] numbers) {       // метод суммирует все элементы коллекции
+            protected double summator(Number[] numbers) {       // метод суммирует все элементы коллекции
             double scale = Math.pow(10, 1);              // переменная scale для округления до десятых
             double sum = 0;
 
-            for (Number i : setArray) {
+            for (T i : setArray) {
                 sum += i.doubleValue();
             }
             System.out.println("Сумма всех элементов в коллекции = " + (Math.ceil(sum * scale)) / scale);
             return sum;
         }
 
-        public Set splitter(int n) {                      // метод делит все элементы коллекции на заданное число n
+        protected Set splitter(int n) {                      // метод делит все элементы коллекции на заданное число n
 
             Set temp = new HashSet();                      // временная коллекция
 
             double div;
             double scale = Math.pow(10, 1);
 
-            for (Number i : setArray) {
+            for (T i : setArray) {
                 div =  i.doubleValue() / n;
                 temp.add((Math.ceil(div * scale)) / scale);
             }
@@ -63,7 +66,7 @@ public class task03 {
         return setArray;
         }
 
-        public void remove (Integer n){                    // метод удаляет из коллекции элемент если он совпадает с заданным числом n
+        protected void remove (Integer n){                    // метод удаляет из коллекции элемент если он совпадает с заданным числом n
 
             Iterator <T> iterator = setArray.iterator();   // создаем итератор
             while (iterator.hasNext()) {
@@ -74,7 +77,6 @@ public class task03 {
             }
             System.out.println("Удален элемент       " + n + ": "+ setArray);
         }
-
 
         @Override
         public void addObject(Object o) {                    // метод ObjectBox - добавляет объект

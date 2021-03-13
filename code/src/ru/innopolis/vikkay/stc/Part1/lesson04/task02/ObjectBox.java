@@ -17,24 +17,24 @@ import java.lang.*;
 
 public  class ObjectBox  {
 
-      Set<Object> object = new HashSet();
+      private Set<Object> object = new HashSet();
 
-    public void addObject(Object o) {                      // метод добавляющий объект в коллекцию
+      private void addObject(Object o) {                      // метод добавляющий объект в коллекцию
         object.add(o);
     }
 
-    public void deleteObject(Object o) {                  // метод проверяющий наличие объекта в коллекции и при наличии удаляющий его
+              private void deleteObject(Object o) {                  // метод проверяющий наличие объекта в коллекции и при наличии удаляющий его
 
-        Iterator <Object> iterator = object.iterator();   // создаем итератор
-        while (iterator.hasNext()) {
-            Object e = iterator.next();
-            if (e.equals(o)) {                            // если элемент совпадает с заданным
-                iterator.remove();                        // удаляем его
+                Iterator <Object> iterator = object.iterator();   // создаем итератор
+                while (iterator.hasNext()) {
+                    Object e = iterator.next();
+                    if (e.equals(o)) {                            // если элемент совпадает с заданным
+                        iterator.remove();                        // удаляем его
+                    }
+                }
             }
-        }
-    }
 
-    public void dump() {                                  //метод выводящий содержимое коллекции в строку
+       private void dump() {                                  //метод выводящий содержимое коллекции в строку
 
         for (Object o : object ) {
             System.out.println(o.getName() + " " + o.getAge() + " " + o.getSex());

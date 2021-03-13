@@ -8,7 +8,7 @@ import java.util.Random;
  * Класс заполняет массив случайными числами
  *
  * @author Viktor Kochetkov
- * @version 1.0 (11.03.2021)
+ * @version 2.0 (13.03.2021)
  */
 
 public class ArrayNumber  {

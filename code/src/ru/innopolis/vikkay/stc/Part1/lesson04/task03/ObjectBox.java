@@ -13,20 +13,21 @@ import java.util.Set;
  * При попытке положить Object в MathBox должно создаваться исключение.
  *
  *  @author Viktor Kochetkov
- *  @version 1.0 (12.03.2021)
+ *  @version 2.0 (13.03.2021)
  */
 
 public class ObjectBox  {
 
-      Set<Object> object = new HashSet();
+    private Set<Object> object = new HashSet<>();
 
-    public void addObject(Object o) {                      // метод добавляющий объект в коллекцию
+    protected void addObject(Object o) {                      // метод добавляющий объект в коллекцию
         object.add(o);
     }
 
-    public void deleteObject(Object o) {                  // метод проверяющий наличие объекта в коллекции и при наличии удаляющий его
+    protected void deleteObject(Object o) {                  // метод проверяющий наличие объекта в коллекции и при наличии удаляющий его
 
         Iterator <Object> iterator = object.iterator();   // создаем итератор
+
         while (iterator.hasNext()) {
             Object e = iterator.next();
             if (e.equals(o)) {                            // если элемент совпадает с заданным
@@ -35,7 +36,7 @@ public class ObjectBox  {
         }
     }
 
-    public void dump() {                                  //метод выводящий содержимое коллекции в строку
+    protected void dump() {                                  //метод выводящий содержимое коллекции в строку
 
         for (Object o : object ) {
             System.out.println(o.getName() + " " + o.getAge() + " " + o.getSex());
