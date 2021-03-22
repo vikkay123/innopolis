@@ -8,7 +8,7 @@ package ru.innopolis.vikkay.stc.Part1.lesson05;
  * (объект класс Person с полями – имя, возраст, пол), вес.
  *
  *     @author Viktor Kochetkov
- *     @version 1.0 (16.03.2021)
+ *     @version 2.0 (19.03.2021)
  */
 
 public class Person {

@@ -1,6 +1,7 @@
 package ru.innopolis.vikkay.stc.Part1.lesson05;
 
 
+import java.util.Collection;
 import java.util.Comparator;
 
 /**
@@ -10,10 +11,10 @@ import java.util.Comparator;
  * Поля для сортировки –  хозяин, кличка животного, вес
  *
  * @author Viktor Kochetkov
- * @version 1.0 (16.03.2021)
+ * @version 2.0 (19.03.2021)
  */
 
-public class PersonComparator implements Comparator <Person> {
+public class PersonComparator implements Comparator<Person> {
 
     public int compare(Person o1, Person o2) {
 

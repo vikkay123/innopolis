@@ -11,23 +11,22 @@ import java.util.*;
  *    - changeToMap - заменяем строку по id
  *    - searchToMap - ищем строку по кличке животного
  *
- *  @version   1.0  (16 03 2021)
+ *  @version   2.0  (19 03 2021)
  *  @author    Viktor Kochetkov
  */
 
-public class AddListAnimal {
-
-      public static List<Person> animalList = new ArrayList<Person>() {};
+public class PetRepository<P> {
 
       public  List<Person> getAnimalList() {                                    // Создаем коллекцию из значений мапы
-           animalList.addAll(IdMap.values());
-           return animalList;
+           return new ArrayList<>(IdMap.values());
       }
 
       private Map<Integer, Person> IdMap = new HashMap<>();
+
       public Map<Integer, Person> getIdMap() {
                     return IdMap;
                 }
+
 
 
            public void arrayToMap(Person person) {                          // добавляем строку если id свободен
@@ -35,37 +34,59 @@ public class AddListAnimal {
                 if (IdMap.containsKey(person.getId())) {
                     System.err.println("Вы пытаетесь добавить уже существующую строку. id = "+person.getId()+" занят!");
                 }
-                    else IdMap.put(person.getId(), person);
+                    else {
+                        IdMap.put(person.getId(), person);
+                }
            }
+
 
            public void removeToMap(int id) {                                 // удаляем строку по id
 
                    if(IdMap.containsKey(id)){
                         IdMap.remove(id);
-                        animalList.clear();
-                        animalList.addAll(IdMap.values());
-                        animalList.sort(new PersonComparator());
                     }
                    else System.err.println("Вы пытаетесь удалить не существующую строку. Такого id нет!");
            }
+
 
            public void changeToMap(int id, Person p) {                     // заменяем строку по id
 
                     if(IdMap.containsKey(id)){
                         IdMap.replace(id,  p);
-                        animalList.clear();
-                        animalList.addAll(IdMap.values());
-                        animalList.sort(new PersonComparator());
                     }
                     else System.err.println("Вы пытаетесь заменить не существующую строку. Такого id нет!");
             }
 
-            public void searchToMap(String animalName) {                       // ищем строку по кличке животного
 
-                    for (Map.Entry<Integer, Person> p : IdMap.entrySet()) {
-                        if (animalName.equals(p.getValue().getAnimalName())) {
-                                System.out.println(p.getKey() + " Владелец: " + p.getValue().getOwnerName() +", "+ " кличка: " + p.getValue().getAnimalName()+ ", возраст: " + p.getValue().getAge() + ", " + p.getValue().getAnimalSex() + ", вес: " + p.getValue().getWeight());
-                        }
+
+    public void searchToMap(String animalName) {                       // ищем строку по кличке животного
+            ArrayList <Person> persons = new ArrayList<>();             // создаем лист для хранения person
+            persons.addAll(getAnimalList());
+
+            HashMap <String, ArrayList<Person>> personsMap = new HashMap<>();  // Map для хранения пар: Кличка - список Персон
+
+                    for (int i = 0; i < persons.size(); i++) {
+
+                            String key = persons.get(i).getAnimalName();
+
+                            if(!personsMap.containsKey(key)){
+                                personsMap.put(key, new ArrayList<Person>());
+                            }
+                                personsMap.get(key).add(persons.get(i));
                     }
+
+                    if(personsMap.containsKey(animalName)) {
+                        ArrayList<Person> t = personsMap.get(animalName);
+                            for (Person per : t) {
+                            System.out.println(per.getId() + " Владелец: " + per.getOwnerName() +", кличка: " + per.getAnimalName()+ ", возраст: " + per.getAge() + ", " + per.getAnimalSex() + ", вес: " + per.getWeight());
+                            }
+                    }
+/*
+        for (Map.Entry<Integer, Person> p : IdMap.entrySet()) {
+            if (animalName.equals(p.getValue().getAnimalName())) { // убрать
+                System.out.println(p.getKey() + " Владелец: " + p.getValue().getOwnerName() +", "+ " кличка: " + p.getValue().getAnimalName()+ ", возраст: " + p.getValue().getAge() + ", " + p.getValue().getAnimalSex() + ", вес: " + p.getValue().getWeight());
             }
+        }
+*/
+    }
 }
