@@ -49,6 +49,7 @@ public class task01 {
             for (String str : setList) {
                 bw.write(str + "\n");                            //запись в файл
             }
+                bw.flush();
 //           for (String str : setList ) { System.out.println(str); }  // для проверки записанного файла
 
         } catch (IOException ex) {
