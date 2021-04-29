@@ -1,0 +1,10 @@
+2021-04-29 14:20:31,470 [main] INFO Par.les.dao.Wor.UpdateData - Вызван метод updateData() 
+2021-04-29 14:20:31,620 [main] INFO Par.les.dao.Wor.UpdateData - Operation UPDATE done successfully 
+2021-04-29 14:20:31,670 [main] INFO Par.les.dao.Wor.SelectData - Вызван метод selectData() 
+2021-04-29 14:20:31,781 [main] INFO Par.les.dao.Wor.SelectData - Operation SELECT done successfully 
+2021-04-29 14:20:31,829 [main] INFO Par.les.dao.Wor.AddColumns - Вызван метод addColumns() 
+2021-04-29 14:20:32,019 [main] INFO Par.les.dao.Wor.AddColumns - Operation ORDER done successfully 
+2021-04-29 14:20:32,079 [main] INFO Par.les.dao.Wor.Batching - Вызван метод addBatch() 
+2021-04-29 14:20:32,285 [main] INFO Par.les.dao.Wor.Batching - Operation BATCH done successfully 
+2021-04-29 14:20:32,346 [main] INFO Par.les.dao.Wor.SavepointData - Вызван метод savepointData() 
+2021-04-29 14:20:32,559 [main] WARN Par.les.dao.Wor.SavepointData - Operation Savepoint done nonsuccessfully Не указано значение для параметра 4. 

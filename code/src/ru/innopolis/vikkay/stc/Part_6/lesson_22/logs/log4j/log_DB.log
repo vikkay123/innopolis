@@ -1,0 +1,7 @@
+[main] 2021-04-29 14:20:31 DEBUG Part_6.lesson.Connec.ConnectionManagerDB - Соединение установлено
+[main] 2021-04-29 14:20:32 INFO Part_6.lesson.dao.StartingWorkWithDB - Вызван метод  addBatch() в Main
+[main] 2021-04-29 14:20:32 DEBUG Part_6.lesson.Connec.ConnectionManagerDB - Подключение к БД создано
+[main] 2021-04-29 14:20:32 DEBUG Part_6.lesson.Connec.ConnectionManagerDB - Соединение установлено
+[main] 2021-04-29 14:20:32 INFO Part_6.lesson.dao.StartingWorkWithDB - Вызван метод savepointData() в Main
+[main] 2021-04-29 14:20:32 DEBUG Part_6.lesson.Connec.ConnectionManagerDB - Подключение к БД создано
+[main] 2021-04-29 14:20:32 DEBUG Part_6.lesson.Connec.ConnectionManagerDB - Соединение установлено
